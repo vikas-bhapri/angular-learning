@@ -1,0 +1,10 @@
+.form-area{
+    margin: 50px;
+    text-align: center;
+}
+
+.addBackground{
+    background-color: yellow;
+    padding: 10px;
+    display: inline-block;
+}

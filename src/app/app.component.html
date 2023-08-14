@@ -1,2 +1,39 @@
-<app-navbar></app-navbar>
-<app-post [fromParent] = "parentMessage"></app-post>
+<div class="form-area">
+    <h1>
+        Post Form
+    </h1>
+    <br>
+    <br>
+
+    <input type="text" placeholder="Post title" [(ngModel)]="postTitle">
+    <br>
+    <br>
+    <textarea name="" placeholder="Description" [(ngModel)]="postDesc" id="" cols="30" rows="10"></textarea>
+    <br>
+    <br>
+    <input type="text" placeholder="Image URL" [(ngModel)]="imgUrl">
+    <br>
+    <br>
+    <input type="text" placeholder="SIte URL" [(ngModel)]="postUrl">
+    <br>
+    <br>
+    <input type="checkbox" [(ngModel)]="check" id="checkbox">
+    <label for="checkbox">Add Background</label>
+
+</div>
+
+<div class="form-area">
+    <img [src]="imgUrl" alt="">
+
+    <h1 [class.addBackground]="check">
+        {{ postTitle }}
+    </h1>
+
+    <p>
+        {{ postDesc }}
+    </p>
+
+    <a [style.display]="postUrl ? 'block' : 'none'" [href]="postUrl" target="_blank">
+        Visit Site
+    </a>
+</div>

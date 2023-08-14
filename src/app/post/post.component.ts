@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -11,11 +11,24 @@ export class PostComponent implements OnInit {
 
   postParentMessage: String = 'Post Parent Message'
 
-  constructor() {
+  childMessage : String = "Some message from child";
+  outputChildMessage = "Message from child via @Output"
+
+  @Output() messageEvent: any = new EventEmitter <String>();
+
+    constructor(){
+
+    }
+
+  ngOnInit(){
 
   }
 
-  ngOnInit(): void {
-
+  sendMessage() {
+    this.messageEvent.emit(this.outputChildMessage);
+    
   }
+  
+
+
 }
