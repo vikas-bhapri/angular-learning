@@ -1,39 +1,43 @@
 <div class="form-area">
     <h1>
-        Post Form
+        User Details
     </h1>
     <br>
     <br>
-
-    <input type="text" placeholder="Post title" [(ngModel)]="postTitle">
+    <input type="text" placeholder="Name" value="{{name}}"  [(ngModel)]="name" required="">
     <br>
     <br>
-    <textarea name="" placeholder="Description" [(ngModel)]="postDesc" id="" cols="30" rows="10"></textarea>
+    <input type="email" placeholder="email" [(ngModel)]="email" required="">
     <br>
     <br>
-    <input type="text" placeholder="Image URL" [(ngModel)]="imgUrl">
+    <input type="text" placeholder="Address" [(ngModel)]="address" required="">
     <br>
     <br>
-    <input type="text" placeholder="SIte URL" [(ngModel)]="postUrl">
-    <br>
-    <br>
-    <input type="checkbox" [(ngModel)]="check" id="checkbox">
-    <label for="checkbox">Add Background</label>
-
+    <button (click)="addNew()">Save</button>
 </div>
 
-<div class="form-area">
-    <img [src]="imgUrl" alt="">
-
-    <h1 [class.addBackground]="check">
-        {{ postTitle }}
-    </h1>
-
-    <p>
-        {{ postDesc }}
-    </p>
-
-    <a [style.display]="postUrl ? 'block' : 'none'" [href]="postUrl" target="_blank">
-        Visit Site
-    </a>
+<div *ngIf="objArray.length > 0; else noData">
+    <div class="table">
+        <table>
+            <thead>
+                <th>#</th>
+                <th>name</th>
+                <th>email</th>
+                <th>address</th>
+                <th>delete</th>
+            </thead>
+            <tr *ngFor="let item of objArray; let index = index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.address }}</td>
+                <td><button (click)="delete(index)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
 </div>
+
+<ng-template #noData>
+    <h3 style="text-align: center;">No data to show!</h3>
+</ng-template>
+
