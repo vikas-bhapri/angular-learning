@@ -5,7 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class StringPipePipe implements PipeTransform {
 
-  transform(value: string, length: number): unknown {
+  transform(value: string, length?: number): unknown {
+    if(!length){
+      length = 30;
+    }
     return value.substring(0, length);
   }
 
