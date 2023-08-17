@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { PostListComponent } from './post/post-list/post-list.component';
+import { AppendPipe } from './Pipes/append.pipe';
+import { StringPipePipe } from './Pipes/string-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     PostComponent,
-    PostListComponent
+    PostListComponent,
+    AppendPipe,
+    StringPipePipe
   ],
   imports: [
     BrowserModule,

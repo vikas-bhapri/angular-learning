@@ -1,43 +1,34 @@
-<div class="form-area">
-    <h1>
-        User Details
-    </h1>
-    <br>
-    <br>
-    <input type="text" placeholder="Name" value="{{name}}"  [(ngModel)]="name" required="">
-    <br>
-    <br>
-    <input type="email" placeholder="email" [(ngModel)]="email" required="">
-    <br>
-    <br>
-    <input type="text" placeholder="Address" [(ngModel)]="address" required="">
-    <br>
-    <br>
-    <button (click)="addNew()">Save</button>
-</div>
+<h1>
+    {{ title | uppercase }}
+</h1>
 
-<div *ngIf="objArray.length > 0; else noData">
-    <div class="table">
-        <table>
-            <thead>
-                <th>#</th>
-                <th>name</th>
-                <th>email</th>
-                <th>address</th>
-                <th>delete</th>
-            </thead>
-            <tr *ngFor="let item of objArray; let index = index">
-                <td>{{ index + 1 }}</td>
-                <td>{{ item.name }}</td>
-                <td>{{ item.email }}</td>
-                <td>{{ item.address }}</td>
-                <td><button (click)="delete(index)">Delete</button></td>
-            </tr>
-        </table>
-    </div>
-</div>
+<h2>
+    {{ number | number: '1.0-0' }} <!--number takes two parameters 1. minimum numbers to be shown before decimal. 2. and min and max numbers after decimal -->
+</h2>
 
-<ng-template #noData>
-    <h3 style="text-align: center;">No data to show!</h3>
-</ng-template>
+<h2>
+    {{price|currency: 'INR': false: '2.1-1'}} <!--Boolean value to show the currency symbol or code. and similarly the numbers can be adjusted like the number pipe-->
+</h2>
+<h1>
+    {{ today | date: 'long' }} <!--Refer the docs for more values-->
+</h1>
 
+<h1>
+    {{ postObject | json }}
+</h1>
+
+<h2>
+    {{ 0.345 | percent : '2.2-2' }}
+</h2>
+
+<h2>
+    {{ postArray | slice: 2:3 }}
+</h2>
+
+<h2>
+    {{ userDetails.city | append }}
+</h2>
+
+<p>
+    {{ dummyText | stringPipe : 40 }}
+</p>
