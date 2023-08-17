@@ -6,25 +6,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
-import { PostListComponent } from './post/post-list/post-list.component';
 import { AppendPipe } from './Pipes/append.pipe';
 import { StringPipePipe } from './Pipes/string-pipe.pipe';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostService } from './Services/post.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     PostComponent,
-    PostListComponent,
     AppendPipe,
-    StringPipePipe
+    StringPipePipe,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
